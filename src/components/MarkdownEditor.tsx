@@ -55,7 +55,7 @@ const MarkdownEditor = ({ isDark }: { isDark: boolean }) => {
     if (!doc) return <p className={isDark ? 'text-white' : 'text-black'}>Select or create a document</p>
 
     return (
-        <div className={`flex flex-col h-full w-full ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+        <div className={`flex flex-col h-[92vh] overflow-y-auto hide-scrollbar w-full ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
             {/* Header */}
             <div className={`flex justify-between items-center px-6 py-3 border-b ${isDark ? 'border-gray-700 bg-gray-800' : 'border-gray-300 bg-gray-50'}`}>
                 <h2 className="text-lg font-semibold truncate">{doc.title || 'Untitled Document'}</h2>
@@ -69,16 +69,20 @@ const MarkdownEditor = ({ isDark }: { isDark: boolean }) => {
             </div>
 
             {/* Editor and Preview */}
-            <div className="flex flex-1 overflow-hidden">
+            <div className="flex flex-1 md:flex-row">
                 <textarea
-                    className={`w-1/2 p-4 resize-none focus:outline-none overflow-auto border-r ${isDark ? 'bg-gray-900 text-white border-gray-700' : 'bg-white text-gray-900 border-gray-400'}`}
+                    className={`w-full md:w-1/2 p-4 resize-none focus:outline-none overflow-auto hide-scrollbar border-b md:border-b-0 md:border-r ${isDark ? 'bg-gray-900 text-white border-gray-700' : 'bg-white text-gray-900 border-gray-400'}`}
                     placeholder="Write something..."
                     value={value}
                     ref={textareaRef}
                     onChange={(e) => setValue(e.target.value)}
                 />
 
-                <div className={`w-1/2 p-4 overflow-auto ${isDark ? 'prose-invert bg-gray-800 text-white' : 'bg-gray-50 text-gray-800'}`} ref={previewRef} onScroll={handlePreviewScroll}>
+                <div
+                    ref={previewRef}
+                    onScroll={handlePreviewScroll}
+                    className={`w-full md:w-1/2 p-4 overflow-auto hide-scrollbar whitespace-pre-wrap break-words font-mono text-sm ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-50 text-gray-800'}`}
+                >
                     <ReactMarkdown>{value}</ReactMarkdown>
                 </div>
             </div>
