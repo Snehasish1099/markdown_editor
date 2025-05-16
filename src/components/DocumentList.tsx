@@ -20,7 +20,7 @@ const DocumentList = ({ isDark }: { isDark: boolean }) => {
                 >
                     New Document
                 </button>
-    
+
                 {/* Search input */}
                 <input
                     type="text"
@@ -30,7 +30,7 @@ const DocumentList = ({ isDark }: { isDark: boolean }) => {
                     className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${isDark ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400' : 'bg-white border-gray-300'}`}
                 />
             </div>
-    
+
             {/* Scrollable Document List */}
             <div className="flex-1 overflow-y-scroll hide-scrollbar p-4 space-y-4">
                 {filtered.length === 0 ? (
@@ -76,7 +76,7 @@ const DocumentList = ({ isDark }: { isDark: boolean }) => {
             </div>
         </div>
     )
-    
+
 }
 
 export default DocumentList

@@ -1,4 +1,4 @@
-import type { MarkdownEditorState } from "../redux/documentReducer"
+import type { MarkdownEditorState } from "./interface"
 
 export const saveToLocalStorage = (state: MarkdownEditorState) => {
     try {

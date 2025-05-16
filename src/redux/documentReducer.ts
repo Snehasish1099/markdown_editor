@@ -1,18 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-
-// Interface for Document 
-export type Document = {
-    id: string
-    title: string
-    content: string
-}
-
-// Interface for initialState 
-export type MarkdownEditorState = {
-    documents: Document[];
-    activeId: string | null;
-    searchQuery: string;
-}
+import type { MarkdownEditorState } from '../utils/interface'
 
 const initialState: MarkdownEditorState = {
     documents: [],
