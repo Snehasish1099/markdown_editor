@@ -13,7 +13,7 @@ if (savedState) {
 }
 
 store.subscribe(() => {
-  saveToLocalStorage(store.getState().documents)
+  saveToLocalStorage({  documents: store.getState().documents })
 })
 
 createRoot(document.getElementById('root')!).render(

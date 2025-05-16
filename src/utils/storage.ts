@@ -1,6 +1,6 @@
 import type { MarkdownEditorState } from "./interface"
 
-export const saveToLocalStorage = (state: MarkdownEditorState) => {
+export const saveToLocalStorage = (state: { documents: MarkdownEditorState }) => {
     try {
         localStorage.setItem('markdown-editor', JSON.stringify(state))
     } catch (e) {
